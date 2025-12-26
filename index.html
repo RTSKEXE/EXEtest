@@ -1,0 +1,443 @@
+Mais le dans ça !!! <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>EXE Site</title>
+  <style>
+    body {
+      background-color: #000;
+      color: white;
+      font-family: "Courier New", monospace;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* centre les boutons verticalement */
+  background-color: #111;
+  border-bottom: none; /* supprime la ligne bleue */
+}
+
+
+    .tab-button {
+      padding: 15px 25px;
+      color: #4da6ff; /* Bleu */
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      text-shadow: 0 0 5px #4da6ff; /* Glow bleu */
+    }
+
+    .tab-button:hover,
+    .tab-button.active {
+      background-color: #222;
+      color: #FF0000; /* Rouge */
+      text-shadow: 0 0 8px #FF0000; /* Glow rouge */
+    }
+
+    .tab-content {
+      display: none;
+      flex: 1;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .blinkie-title {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .blinkie-title img {
+      width: 900px;
+      max-width: 100%;
+      height: auto;
+      image-rendering: pixelated;
+    }
+
+    .attached-blinkies {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .attached-blinkies a img {
+      height: 40px;
+      image-rendering: pixelated;
+      vertical-align: top;
+      cursor: pointer;
+    }
+
+    .attached-blinkies::after {
+      content: "NOUS NE SOMMES PAS DES SCRIPT KIDDIES, MAIS DE VRAI LÉGENDES";
+      display: block;
+      color: #4da6ff; /* Bleu */
+      font-size: 12px;
+      margin-top: 3px;
+      font-family: monospace;
+      text-align: center;
+    }
+
+    footer {
+      padding: 20px;
+      background-color: #111;
+      border-top: 2px dashed #4da6ff; /* Bleu */
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .footer-image {
+      margin-top: 10px;
+    }
+
+    .footer-image img {
+      height: 30px;
+      image-rendering: pixelated;
+      cursor: pointer;
+    }
+
+    #bsod {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #0000AA;
+      color: white;
+      font-family: monospace;
+      font-size: 16px;
+      padding: 40px;
+      box-sizing: border-box;
+      z-index: 9999;
+      user-select: none;
+      cursor: pointer;
+      white-space: pre-wrap;
+    }
+
+    /* 🔧 Styles pour l’onglet Soutien */
+    .support-item {
+      margin: 20px 0;
+      font-size: 16px;
+    }
+    .support-item img {
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+      margin-right: 10px;
+      image-rendering: pixelated;
+    }
+    .support-item span {
+      color: #4da6ff; /* Bleu */
+      font-weight: bold;
+    }
+
+.xmas-banner {
+  text-align: center;
+  margin: 20px 0; /* espace au-dessus et en-dessous */
+}
+
+.xmas-banner img {
+  max-width: 100%;  /* s'adapte à la largeur de la page */
+  height: auto;
+  image-rendering: pixelated;
+}
+
+/* ❄ Neige en background */
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: white;
+  font-size: 10px;
+  pointer-events: none;
+  animation: fallSnow linear infinite;
+  z-index: 0; /* derrière TOUT */
+}
+
+@keyframes fallSnow {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Barre d'onglets -->
+  <nav>
+  <button class="tab-button active" onclick="showTab('accueil')">Accueil</button>
+  <button class="tab-button" onclick="showTab('onglet3')">Rejoins-nous</button>
+  <button class="tab-button" onclick="showTab('shop')">Shop</button>
+<button class="tab-button" onclick="window.open('https://la-exe.github.io/EXE-bot/', '_blank')">
+  Bot Discord
+  <button class="tab-button" onclick="showTab('soutien')">Soutien</button>
+</nav>
+
+<!-- Bandera Noël sous les onglets -->
+<div class="xmas-banner">
+  <img src="XMAS.png" alt="Banderole Noël">
+</div>
+
+<div style="text-align:center; color:#FF0000; font-size:32px; font-weight:bold; margin-top:-40px;">
+  HAPPY XMAS
+</div>
+
+<!-- Contenus des onglets -->
+<div id="shop" class="tab-content">
+  <h2>Shop</h2>
+    <p style="color: #4da6ff; font-weight: bold;">
+    Pour payer, il faut aller sur notre Discord 💸
+    <a href="https://discord.gg/QhYcGtTykJ" target="_blank" style="color:#4da6ff; text-decoration: underline;">Via ce Lien</a></p>
+        <p style="color: #4da6ff; font-weight: bold;">
+    et crée un ticket en incluant l'id de l'article que vous voulez acheter</p>
+  </p>
+ <div class="shop-item" style="width: 160px; background-color: #111; padding: 10px; border: 2px dashed #4da6ff; text-align: center;">
+    <img src="a2.gif" alt="Article 1" style="max-width: 80px; height: auto; display: block; margin: 0 auto 8px auto; object-fit: contain;">
+    <p style="margin: 0; font-weight: bold;">Service Personnalisé</p>
+    <p style="margin: 0;">Prix : 1.00€ - 8.00€</p>
+    <p style="margin: 0;">Le prix se négocira en fonction du service demandé</p>
+    <p style="margin: 0;">ID : 1</p>
+</div>
+</div>
+    <!-- Tu peux dupliquer cette div pour ajouter d'autres articles -->
+  </div>
+</div>
+
+  <!-- Titre blinkie -->
+  <div class="blinkie-title">
+    <img src="exe-hwn.gif" alt="EXE blinkie">
+  </div>
+
+  <!-- Blinkies attachés cliquables -->
+  <div class="attached-blinkies">
+    <a href="https://guns.lol/rtsk.exe" target="_blank">
+      <img src="r-hwn.gif" alt="r">
+    </a>
+    <a href="https://guns.lol/noneed2know/" target="_blank">
+      <img src="n-hwn.gif" alt="n">
+    </a>
+    <a href="https://guns.lol/kinito.exe" target="_blank">
+      <img src="k-hwn.gif" alt="k">
+    </a>
+  </div>
+
+  <!-- Contenus des onglets -->
+  <div id="accueil" class="tab-content active">
+    <h2>Qui sommes nous ?</h2>
+    <p>Une team complètement tarée.
+    <p>On cheat, on hack, on troll — ON EST DES VRAI MALADES
+    <p>On frappe, on s'infiltre, on explose tout.
+    <p>Le chaos est notre terrain de jeu, et on se régale.</p>
+  </div>
+
+  <div id="onglet3" class="tab-content">
+    <h2>Rejoins-nous</h2>
+    <p>T’es fou ? T’as des skills ?
+    <p>Bienvenue.
+    <p>Sinon, trace ta route.
+    <p><a href="https://discord.gg/QhYcGtTykJ" target="_blank" style="color:#4da6ff; text-decoration: underline;">https://discord.gg/QhYcGtTykJ</a></p>
+  </div>
+
+  <div id="soutien" class="tab-content">
+    <h2>Soutenir la EXE</h2>
+    <div class="support-item">
+      <img src="bitcoin.jpg" alt="Bitcoin">
+      <span>Bitcoin :</span> bc1qz87u4hr6pv8yzq96h6vjcutz3nrgw06gkdxzvw
+    </div>
+    <div class="support-item">
+      <img src="ethereum.jpg" alt="Ethereum">
+      <span>Ethereum :</span> 0x4bb895c76738B4B9B42A86B9F55C0dD3aBb0CF40
+    </div>
+    <div class="support-item">
+      <img src="solana.jpg" alt="Solana">
+      <span>Solana :</span> FgvSNeEGXiuvBBUPgEJ8M5M4oW739AKMh8GmSZtY2qPK
+    </div>
+  </div>
+
+<footer>
+  © 2025 - 2025 EXE - All Rights Reserved.
+  <div class="footer-image">
+    <img src="debian-hwn.gif" alt="Debian" id="debian-logo">
+  </div>
+</footer>
+
+  <!-- Faux BSOD -->
+  <div id="bsod">
+*** STOP: 0x000000D3 (0x00000000, 0x00000002, 0x00000001, 0xF86B1234)
+WANTED_TO_WISH_YOU_A_MERRY_XMAS
+
+Joyeux Noël
+Merry Christmas
+Feliz Navidad
+Feliz Natal
+圣诞快乐
+عيد ميلاد سعيد
+क्रिसमस की बधाई
+শুভ বড়দিন
+کرسمس مبارک
+С Рождеством
+メリークリスマス
+메리 크리스마스
+Selamat Natal
+Giáng sinh vui vẻ
+Krismasi Njema
+Frohe Weihnachten
+Buon Natale
+Wesołych Świąt
+Mutlu Noeller
+Nadolig Llawen
+
+Press ESC or click anywhere to exit this screen.
+  </div>
+
+  <!-- Script JavaScript -->
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(function(content) {
+        content.classList.remove('active');
+      });
+
+      document.querySelectorAll('.tab-button').forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+
+      document.getElementById(tabId).classList.add('active');
+
+      const btns = document.querySelectorAll('.tab-button');
+      btns.forEach(btn => {
+        if ((tabId === 'accueil' && btn.textContent === 'Accueil') ||
+            (tabId === 'onglet3' && btn.textContent === 'Rejoins-nous') ||
+            (tabId === 'soutien' && btn.textContent === 'Soutien')) {
+          btn.classList.add('active');
+        }
+      });
+    }
+
+    const bsod = document.getElementById('bsod');
+    const debianLogo = document.getElementById('debian-logo');
+
+    debianLogo.addEventListener('click', () => {
+      bsod.style.display = 'block';
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape") {
+        bsod.style.display = 'none';
+      }
+    });
+
+    bsod.addEventListener('click', () => {
+      bsod.style.display = 'none';
+    });
+  </script>
+
+<script>
+function createSnowflake() {
+  const snow = document.createElement('div');
+  snow.classList.add('snowflake');
+  snow.textContent = '❄';
+
+  const size = Math.random() * 10 + 5;
+  snow.style.fontSize = size + 'px';
+
+  snow.style.left = Math.random() * window.innerWidth + 'px';
+  snow.style.animationDuration = (5 + Math.random() * 5) + 's';
+
+  document.body.appendChild(snow);
+
+  setTimeout(() => {
+    snow.remove();
+  }, 10000);
+}
+
+setInterval(createSnowflake, 150);
+</script>
+
+<script>
+// 🚫 Anti clic droit
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// 🚫 Anti DevTools
+document.addEventListener('keydown', e => {
+
+  if (e.key === 'F12') {
+    e.preventDefault();
+    triggerGlitch();
+  }
+
+  if (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key.toUpperCase())) {
+    e.preventDefault();
+    triggerGlitch();
+  }
+
+  if (e.ctrlKey && e.key.toUpperCase() === 'U') {
+    e.preventDefault();
+    triggerGlitch();
+  }
+});
+
+// 🔍 Détection ouverture inspecteur
+let devtools = false;
+setInterval(() => {
+  const w = window.outerWidth - window.innerWidth;
+  const h = window.outerHeight - window.innerHeight;
+
+  if (w > 160 || h > 160) {
+    if (!devtools) {
+      devtools = true;
+      triggerGlitch();
+    }
+  } else {
+    devtools = false;
+  }
+}, 500);
+
+// 💥 Glitch + BSOD combo
+function triggerGlitch() {
+  document.getElementById('blackout').style.display = 'flex';
+  setTimeout(() => {
+    document.getElementById('bsod').style.display = 'block';
+  }, 1200);
+}
+</script>
+
+
+<!-- Blackout Glitch --> <div id="blackout"> <div class="glitch" data-text="SYSTEM FAILURE">SYSTEM FAILURE</div> </div>
+
+</body>
+</html>
+
+  <!-- Ceci ne s'affichera pas. Structure du Shop -->
+     <!--
+  <div class="shop-container" style="display: flex; overflow-x: auto; gap: 20px; padding: 20px;">
+    -->
+
+  <!-- Ceci ne s'affichera pas. Shop Item -->
+  <!--
+  <div class="shop-item" style="width: 160px; background-color: #111; padding: 10px; border: 2px dashed #4da6ff; text-align: center;">
+    <img src="a1.jpg" alt="Article 1" style="max-width: 80px; height: auto; display: block; margin: 0 auto 8px auto; object-fit: contain;">
+    <p style="margin: 0; font-weight: bold;">Nom</p>
+    <p style="margin: 0;">Prix : 0.00€</p>
+    <p style="margin: 0;">ID : 0</p>
+</div>
+    -->
+
+      <!-- Ceci ne s'affichera pas. Shop en construction -->
+  <!--
+    <p>🚧 Le Shop est en cours de construction 🚧</p>
+</div>
+    -->
